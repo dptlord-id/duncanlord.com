@@ -40,6 +40,8 @@ Install the tools once with `npm install`.
   What I made, Outcome, gallery), and replace the content. Add a card for it to
   `portfolio.html` under Professional work or Graduate coursework (and to
   `index.html` if it should be featured), then run `npm run sync`.
-- Downloads: the site intentionally hosts no downloadable files. Link to live
-  work (a video, a site, a hosted lesson) instead.
+- Downloads: the only downloadable file is the CV, `files/duncan-lord-cv.pdf`
+  (linked from About). To update it, replace that file with the new PDF under
+  the same name. Otherwise, link to live work (a video, a site, a hosted
+  lesson) instead of hosting files.
 - Format files: `npm run format`.
