@@ -44,4 +44,8 @@ Install the tools once with `npm install`.
   (linked from About). To update it, replace that file with the new PDF under
   the same name. Otherwise, link to live work (a video, a site, a hosted
   lesson) instead of hosting files.
+- Link previews: each page's `og:image` points to `images/og/`. Projects use
+  a 1200x630 JPG of their hero image; the other pages use `default.png`,
+  rendered from `scripts/og-card.html` (open it through the local server at
+  1200x630 and save a screenshot). Add new pages to `sitemap.xml`.
 - Format files: `npm run format`.

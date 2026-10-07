@@ -524,6 +524,38 @@ a:hover {
   outline: none;
 }
 
+/* Focus grid: short descriptive blocks (current work) */
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+  gap: var(--space-6);
+  margin: var(--space-6) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.focus-grid > li {
+  margin: 0;
+  padding: var(--space-5) var(--space-6);
+  border-top: 3px solid var(--color-accent);
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+}
+
+.focus-grid > li:nth-child(even) {
+  border-top-color: var(--color-accent-2);
+}
+
+.focus-grid h3 {
+  margin-bottom: var(--space-3);
+  font-size: var(--step-1);
+  font-weight: 600;
+}
+
+.focus-grid p {
+  margin: 0;
+}
+
 /* Gallery */
 .gallery {
   display: grid;
@@ -824,7 +856,8 @@ a:hover {
 
   .offset-frame > img,
   .card,
-  .project-details {
+  .project-details,
+  .focus-grid > li {
     box-shadow: none;
   }
 
@@ -877,7 +910,8 @@ a:hover {
 
   li,
   .project-details,
-  .card-grid > li {
+  .card-grid > li,
+  .focus-grid > li {
     break-inside: avoid;
   }
 }
