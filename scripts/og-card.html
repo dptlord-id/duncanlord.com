@@ -1,0 +1,75 @@
+<!doctype html>
+<!-- Template for the 1200×630 link-preview image (images/og/default.png).
+     To regenerate, serve the site locally, open this page at 1200×630, and
+     save a screenshot over images/og/default.png. -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Link preview card</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    />
+    <link rel="stylesheet" href="/css/site.css" />
+    <style>
+      body {
+        width: 1200px;
+        height: 630px;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      .og {
+        display: grid;
+        grid-template-columns: 1fr 330px;
+        align-items: center;
+        gap: 64px;
+        height: 100%;
+        padding: 0 96px;
+      }
+
+      .og-logo {
+        width: 230px;
+        margin-bottom: 40px;
+      }
+
+      .og h1 {
+        margin: 0 0 16px;
+        font-size: 76px;
+      }
+
+      .og p {
+        margin: 0;
+        color: var(--color-muted);
+        font-size: 30px;
+        line-height: 1.35;
+      }
+
+      .og .url {
+        margin-top: 40px;
+        color: var(--color-accent);
+        font-family: var(--font-heading);
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      .og .offset-frame {
+        --frame-offset: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="og">
+      <div>
+        <img class="og-logo" src="/images/logo-dark-360.webp" alt="" />
+        <h1>Duncan Lord</h1>
+        <p>Instructional and learning experience designer</p>
+        <p class="url">duncanlord.com</p>
+      </div>
+      <div class="offset-frame">
+        <img src="/images/home/portrait-960.webp" alt="" />
+      </div>
+    </div>
+  </body>
+</html>
