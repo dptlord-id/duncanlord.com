@@ -13,15 +13,17 @@ if (links.length && "HTMLDialogElement" in window) {
       <img alt="">
       <figcaption></figcaption>
     </figure>
+    <p class="lightbox-count"></p>
     <div class="lightbox-controls">
       <button type="button" data-step="-1">Previous</button>
-      <button type="button" data-close>Close</button>
+      <button type="button" data-close autofocus>Close</button>
       <button type="button" data-step="1">Next</button>
     </div>`;
   document.body.append(dialog);
 
   const img = dialog.querySelector("img");
   const caption = dialog.querySelector("figcaption");
+  const count = dialog.querySelector(".lightbox-count");
   const stepButtons = dialog.querySelectorAll("[data-step]");
   let index = 0;
 
@@ -34,6 +36,9 @@ if (links.length && "HTMLDialogElement" in window) {
     caption.textContent =
       link.closest("figure")?.querySelector("figcaption")?.textContent.trim() ??
       "";
+    const position = `${index + 1} of ${links.length}`;
+    count.textContent = links.length > 1 ? position : "";
+    dialog.setAttribute("aria-label", `Image ${position}`);
   };
 
   stepButtons.forEach((button) => {
