@@ -3,8 +3,8 @@
   "type": "module",
   "scripts": {
     "sync": "node scripts/sync-partials.mjs",
-    "images": "node scripts/build-images.mjs",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "image": "node scripts/add-image.mjs"
   },
   "devDependencies": {
     "prettier": "^3.9.9",

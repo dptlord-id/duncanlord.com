@@ -290,6 +290,7 @@ a:hover {
 
 .nav-group > summary::after {
   content: "";
+  flex: none;
   width: 0.45em;
   height: 0.45em;
   margin-top: -0.2em;
@@ -603,18 +604,18 @@ a:hover {
   padding: var(--space-5);
 }
 
-.card h3 {
+.card :is(h2, h3) {
   margin: 0;
   font-size: var(--step-1);
   font-weight: 600;
 }
 
-.card h3 a {
+.card :is(h2, h3) a {
   text-decoration: none;
 }
 
 /* Make the whole card clickable through the heading link. */
-.card h3 a::after {
+.card :is(h2, h3) a::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -635,7 +636,7 @@ a:hover {
   transform: translateY(-3px);
 }
 
-.card:hover h3 {
+.card:hover :is(h2, h3) {
   color: var(--color-accent);
 }
 
@@ -760,6 +761,30 @@ a:hover {
   cursor: pointer;
 }
 
+.disclosure > summary {
+  list-style: none;
+}
+
+.disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+
+.disclosure > summary::after {
+  content: "";
+  flex: none;
+  width: 0.45em;
+  height: 0.45em;
+  margin-top: -0.2em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.disclosure[open] > summary::after {
+  margin-top: 0.2em;
+  transform: rotate(-135deg);
+}
+
 .disclosure > summary:hover {
   color: var(--color-accent);
 }
@@ -772,7 +797,7 @@ a:hover {
 .icon-list {
   display: grid;
   gap: var(--space-5);
-  margin: 0;
+  margin: var(--space-5) 0;
   padding: 0;
   list-style: none;
 }
@@ -806,6 +831,16 @@ a:hover {
   margin-bottom: 0;
 }
 
+.panel > img:first-child {
+  width: auto;
+  height: 6rem;
+  margin-bottom: var(--space-4);
+}
+
+.card-grid > li > .panel {
+  height: 100%;
+}
+
 .panel + .panel {
   margin-top: var(--space-7);
 }
@@ -829,8 +864,19 @@ a:hover {
 
 table {
   width: 100%;
+  min-width: 34rem;
   border-collapse: collapse;
+  table-layout: fixed;
   font-size: 0.95rem;
+}
+
+/* Course tables: fixed first and last columns so every semester lines up. */
+thead th:first-child {
+  width: 9rem;
+}
+
+thead th:last-child {
+  width: 10rem;
 }
 
 caption {
@@ -847,6 +893,11 @@ td {
   border-bottom: 1px solid var(--color-line);
   text-align: left;
   vertical-align: top;
+}
+
+td:first-child,
+th:first-child {
+  white-space: nowrap;
 }
 
 thead th {
@@ -908,7 +959,7 @@ thead th {
 }
 
 /* Project pages */
-.project-hero {
+.page-hero {
   max-width: 60rem;
   margin-top: var(--space-6);
 }
