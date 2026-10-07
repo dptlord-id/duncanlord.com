@@ -1,0 +1,29 @@
+#!/bin/sh
+# Rejects commit messages that don't follow Conventional Commits.
+# Enabled by `npm install` (sets core.hooksPath to .githooks). Types match
+# .github/workflows/pr-title.yml and CLAUDE.md.
+
+header=$(head -n 1 "$1")
+
+# Let git's own generated messages through.
+case "$header" in
+  Merge\ * | Revert\ * | fixup!\ * | squash!\ * | amend!\ *) exit 0 ;;
+esac
+
+types='feat|fix|content|style|refactor|docs|build|ci|chore|revert'
+if printf '%s\n' "$header" | grep -Eq "^($types)(\([a-z0-9-]+\))?!?: [^ ].*[^.]$"; then
+  exit 0
+fi
+
+cat >&2 <<MSG
+Commit message must follow Conventional Commits:
+
+  <type>(<optional scope>): <description>
+
+  types: feat, fix, content, style, refactor, docs, build, ci, chore, revert
+  e.g.   content(about): shorten the intro
+         fix(project): restore missing gallery caption
+
+Got: $header
+MSG
+exit 1

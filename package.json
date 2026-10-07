@@ -2,6 +2,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "prepare": "git config core.hooksPath .githooks",
     "sync": "node scripts/sync-partials.mjs",
     "format": "prettier --write .",
     "image": "node scripts/add-image.mjs"
