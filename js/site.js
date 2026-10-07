@@ -1,29 +1,7 @@
-// Mobile menu, Coursework dropdown, and gallery lightbox.
-// Every page works without this file: the menu stays expanded and gallery
-// links open the full-size image directly.
+// Gallery lightbox. Without this file, gallery links open the full-size
+// image directly.
 
-const toggle = document.querySelector(".nav-toggle");
-const nav = document.getElementById("site-nav");
-
-toggle?.addEventListener("click", () => {
-  const open = toggle.getAttribute("aria-expanded") !== "true";
-  toggle.setAttribute("aria-expanded", String(open));
-  nav.classList.toggle("is-open", open);
-});
-
-// Close the Coursework dropdown on outside click or Escape.
-const group = document.querySelector(".nav-group");
-document.addEventListener("click", (event) => {
-  if (group?.open && !group.contains(event.target)) group.open = false;
-});
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && group?.open) {
-    group.open = false;
-    group.querySelector("summary").focus();
-  }
-});
-
-// Lightbox for links marked data-lightbox inside a .gallery.
+// Applies to links marked data-lightbox inside a .gallery.
 const links = [...document.querySelectorAll(".gallery a[data-lightbox]")];
 
 if (links.length && "HTMLDialogElement" in window) {
