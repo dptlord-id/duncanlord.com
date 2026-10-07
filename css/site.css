@@ -763,6 +763,125 @@ a:hover {
   }
 }
 
+/* ---------- Print ---------- */
+@media print {
+  @page {
+    margin: 1.5cm;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+    line-height: 1.45;
+  }
+
+  .skip-link,
+  .site-nav,
+  .site-footer,
+  .button-row,
+  .button,
+  .back-link,
+  .lightbox,
+  section[aria-labelledby="images-heading"],
+  .card img {
+    display: none;
+  }
+
+  .container {
+    width: auto;
+  }
+
+  .site-header {
+    padding: 0 0 0.5cm;
+  }
+
+  .hero,
+  .page-header,
+  .section {
+    padding-block: 0.4cm 0;
+  }
+
+  .section--band {
+    background: none;
+  }
+
+  .hero .container,
+  .split,
+  .project-layout {
+    display: block;
+  }
+
+  .offset-frame {
+    margin: 0 0 0.5cm;
+  }
+
+  .offset-frame::before,
+  .offset-frame::after,
+  .card h3 a::after {
+    content: none;
+  }
+
+  .offset-frame > img,
+  .card,
+  .project-details {
+    box-shadow: none;
+  }
+
+  .hero .offset-frame,
+  .split .offset-frame {
+    max-width: 5cm;
+  }
+
+  .page-hero {
+    max-width: 12cm;
+  }
+
+  .project-details,
+  .card {
+    border: 1px solid #999;
+  }
+
+  .project-details {
+    margin-bottom: 0.5cm;
+  }
+
+  .card-grid {
+    display: block;
+  }
+
+  .card-grid > li {
+    margin: 0 0 0.4cm;
+  }
+
+  .tags li {
+    border: 1px solid #000;
+    background: none;
+    color: #000;
+  }
+
+  a {
+    color: #000;
+  }
+
+  .prose a[href^="http"]:not(.references a)::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    overflow-wrap: anywhere;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  li,
+  .project-details,
+  .card-grid > li {
+    break-inside: avoid;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
