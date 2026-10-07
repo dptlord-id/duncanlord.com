@@ -5,7 +5,7 @@
 import { readFile, writeFile, readdir } from "node:fs/promises";
 import * as prettier from "prettier";
 
-const dirs = [".", "coursework", "project"];
+const dirs = [".", "project"];
 const partials = {
   header: await readFile("partials/header.html", "utf8"),
   footer: await readFile("partials/footer.html", "utf8"),
@@ -19,8 +19,7 @@ for (const dir of dirs) {
   }
 }
 
-// Marks links to this page. In the header, also marks the parent section of
-// project and coursework pages.
+// Marks links to this page. In the header, project pages also mark Work.
 function markCurrent(html, page, partial) {
   const url = page === "index.html" ? "/" : `/${page}`;
   const link = (href) => new RegExp(`href="${href}"(\\s*)>`, "g");
@@ -31,9 +30,6 @@ function markCurrent(html, page, partial) {
       link("/portfolio.html"),
       'href="/portfolio.html" aria-current="true"$1>',
     );
-  }
-  if (page.startsWith("coursework/")) {
-    html = html.replace('class="nav-group"', 'class="nav-group is-current"');
   }
   return html;
 }
